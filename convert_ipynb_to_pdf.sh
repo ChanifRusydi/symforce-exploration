@@ -4,3 +4,4 @@ pip install weasyprint
 pyppeteer-install
 jupyter-nbconvert --to html symforce-exploration.ipynb
 weasyprint symforce-exploration.html symforce-exploration.pdf
+rm -r symforce-exploration.html
