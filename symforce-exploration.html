@@ -14705,7 +14705,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
+<h4 id="Import-Library-Symforce-Symbolic-API,-yang-berisi-SymPy-API-yang-ditambah,-serta-geometri-dan-tipe-kamera">Import Library Symforce Symbolic API, yang berisi SymPy API yang ditambah, serta geometri dan tipe kamera<a class="anchor-link" href="#Import-Library-Symforce-Symbolic-API,-yang-berisi-SymPy-API-yang-ditambah,-serta-geometri-dan-tipe-kamera">&#182;</a></h4><h4 id="Pertama,-memberi-tahu-SymForce-untuk-menggunakan-epsilon-bukan-nol-untuk-mencegah-singularitas.-Ini-tidak-diperlukan-saat-bermain-main-dengan-ekspresi-simbolik,-tetapi-penting-untuk-mengevaluasi-beberapa-hasil-secara-numerik.">Pertama, memberi tahu SymForce untuk menggunakan epsilon bukan nol untuk mencegah singularitas. Ini tidak diperlukan saat bermain-main dengan ekspresi simbolik, tetapi penting untuk mengevaluasi beberapa hasil secara numerik.<a class="anchor-link" href="#Pertama,-memberi-tahu-SymForce-untuk-menggunakan-epsilon-bukan-nol-untuk-mencegah-singularitas.-Ini-tidak-diperlukan-saat-bermain-main-dengan-ekspresi-simbolik,-tetapi-penting-untuk-mengevaluasi-beberapa-hasil-secara-numerik.">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14743,6 +14743,17 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="Buat-pose-2D-simbolis-dan-lokasi-landmark.-Menggunakan-variabel-simbolik-memungkinkan-kita-menjelajahi-dan-membangun-matematika-dalam-bentuk-murni.">Buat pose 2D simbolis dan lokasi landmark. Menggunakan variabel simbolik memungkinkan kita menjelajahi dan membangun matematika dalam bentuk murni.<a class="anchor-link" href="#Buat-pose-2D-simbolis-dan-lokasi-landmark.-Menggunakan-variabel-simbolik-memungkinkan-kita-menjelajahi-dan-membangun-matematika-dalam-bentuk-murni.">&#182;</a></h5>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14763,15 +14774,26 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="Ubah-landmark-menjadi-bingkai-lokal-robot.-Representasi-pose-sebagai-world_T_body,-artinya-mengambil-landmark-di-world-frame-dan-mendapatkan-posisinya-di-body-frame">Ubah landmark menjadi bingkai lokal robot. Representasi pose sebagai world_T_body, artinya mengambil landmark di world frame dan mendapatkan posisinya di body frame<a class="anchor-link" href="#Ubah-landmark-menjadi-bingkai-lokal-robot.-Representasi-pose-sebagai-world_T_body,-artinya-mengambil-landmark-di-world-frame-dan-mendapatkan-posisinya-di-body-frame">&#182;</a></h5>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">landmark_body</span><span class="o">=</span><span class="n">pose</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">landmark</span>     
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">landmark_body</span><span class="o">=</span><span class="n">pose</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">landmark</span>
 </pre></div>
 
      </div>
@@ -14779,6 +14801,17 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h5 id="sf.Rot2-direpresentasikan-secara-internal-oleh-bilangan-kompleks-(%F0%9D%91%85%F0%9D%91%9F%F0%9D%91%92,-%F0%9D%91%85%F0%9D%91%96%F0%9D%91%9A)-dan-kita-dapat-mempelajari-bagaimana-ia-merotasi-landmark-%F0%9D%90%BF.">sf.Rot2 direpresentasikan secara internal oleh bilangan kompleks (&#119877;&#119903;&#119890;, &#119877;&#119894;&#119898;) dan kita dapat mempelajari bagaimana ia merotasi landmark &#119871;.<a class="anchor-link" href="#sf.Rot2-direpresentasikan-secara-internal-oleh-bilangan-kompleks-(%F0%9D%91%85%F0%9D%91%9F%F0%9D%91%92,-%F0%9D%91%85%F0%9D%91%96%F0%9D%91%9A)-dan-kita-dapat-mempelajari-bagaimana-ia-merotasi-landmark-%F0%9D%90%BF.">&#182;</a></h5><h5 id="Untuk-tujuan-eksplorasi,-mari-ambil-jacobian-tengara-kerangka-tubuh-sehubungan-dengan-ruang-singgung-Pose2,-dengan-parameter-sebagai-(%F0%9D%9C%83,-%F0%9D%91%A5,-%F0%9D%91%A6):">Untuk tujuan eksplorasi, mari ambil jacobian tengara kerangka tubuh sehubungan dengan ruang singgung Pose2, dengan parameter sebagai (&#120579;, &#119909;, &#119910;):<a class="anchor-link" href="#Untuk-tujuan-eksplorasi,-mari-ambil-jacobian-tengara-kerangka-tubuh-sehubungan-dengan-ruang-singgung-Pose2,-dengan-parameter-sebagai-(%F0%9D%9C%83,-%F0%9D%91%A5,-%F0%9D%91%A6):">&#182;</a></h5>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
