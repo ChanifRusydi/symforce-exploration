@@ -14610,7 +14610,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Notebook-ini-adalah-tutorial-untuk-menggunakan-Symforce.-Tutorial-ini-akan-membahas-tentang:">Notebook ini adalah tutorial untuk menggunakan Symforce. Tutorial ini akan membahas tentang:<a class="anchor-link" href="#Notebook-ini-adalah-tutorial-untuk-menggunakan-Symforce.-Tutorial-ini-akan-membahas-tentang:">&#182;</a></h3><ul>
 <li>Instalasi Symforce menggunakan pip via bash command</li>
-<li>contoh sederhana pemodelan dan penyelesaian masalah pengoptimalan dengan SymForce. Dalam contoh ini robot bergerak melalui bidang 2D dan tujuannya adalah untuk memperkirakan posenya pada beberapa langkah waktu dengan pengukuran kebisingan.</li>
+<li>Contoh sederhana pemodelan dan penyelesaian masalah pengoptimalan dengan SymForce. Dalam contoh ini robot bergerak melalui bidang 2D dan tujuannya adalah untuk memperkirakan posenya pada beberapa langkah waktu dengan pengukuran kebisingan.</li>
 </ul>
 
 </div>
@@ -14698,12 +14698,40 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">symforce</span>
+<span class="n">symforce</span><span class="o">.</span><span class="n">set_epsilon_to_symbol</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">symforce.symbolic</span> <span class="k">as</span> <span class="nn">sym</span>
@@ -14821,7 +14849,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>atan2(L0*R_re + L1*R_im - (t0*R_re + t1*R_im), -L0*R_im + L1*R_re - (-t0*R_im + t1*R_re))</pre>
+<pre>atan2(L0*R_re + L1*R_im - (t0*R_re + t1*R_im), -L0*R_im + L1*R_re + (0.5 + sign(-L0*R_im + L1*R_re - (-t0*R_im + t1*R_re)))*epsilon - (-t0*R_im + t1*R_re))</pre>
 </div>
 
 </div>
@@ -14860,7 +14888,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>sqrt(x0**2 + x1**2 + x2**2)</pre>
+<pre>sqrt(epsilon + x0**2 + x1**2 + x2**2)</pre>
 </div>
 
 </div>
@@ -14874,13 +14902,14 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">symforce</span>
-<span class="n">symforce</span><span class="o">.</span><span class="n">set_epsilon_to_symbol</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="k">try</span> <span class="p">:</span>
+    <span class="n">symforce</span><span class="o">.</span><span class="n">set_epsilon_to_symbol</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
 </pre></div>
 
      </div>
@@ -14905,7 +14934,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">symforce.values</span> <span class="kn">import</span> <span class="n">Values</span>
@@ -14921,7 +14950,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_poses</span><span class="o">=</span><span class="mi">3</span>
@@ -14938,7 +14967,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">initial_values</span><span class="o">=</span><span class="n">Values</span><span class="p">(</span>
@@ -14960,7 +14989,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">bearing_residual</span><span class="p">(</span>
@@ -14981,7 +15010,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">odometry_residual</span><span class="p">(</span>
@@ -15000,7 +15029,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">symforce.opt.factor</span> <span class="kn">import</span> <span class="n">Factor</span>
@@ -15035,7 +15064,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">symforce.opt.optimizer</span> <span class="kn">import</span> <span class="n">Optimizer</span>
@@ -15058,7 +15087,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">initial_values</span><span class="p">)</span>
@@ -15081,14 +15110,14 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[2022-12-01 07:26:56.623] [info] LM&lt;sym::Optimize&gt; [iter    0] lambda: 1.000e+00, error prev/linear/new: 5.143/2.872/2.203, rel reduction: 0.57166
-[2022-12-01 07:26:56.623] [info] LM&lt;sym::Optimize&gt; [iter    1] lambda: 2.500e-01, error prev/linear/new: 2.203/0.087/0.074, rel reduction: 0.96655
-[2022-12-01 07:26:56.624] [info] LM&lt;sym::Optimize&gt; [iter    2] lambda: 6.250e-02, error prev/linear/new: 0.074/0.006/0.006, rel reduction: 0.91401
-[2022-12-01 07:26:56.624] [info] LM&lt;sym::Optimize&gt; [iter    3] lambda: 1.562e-02, error prev/linear/new: 0.006/0.001/0.001, rel reduction: 0.90323
-[2022-12-01 07:26:56.625] [info] LM&lt;sym::Optimize&gt; [iter    4] lambda: 3.906e-03, error prev/linear/new: 0.001/0.000/0.000, rel reduction: 0.60930
-[2022-12-01 07:26:56.626] [info] LM&lt;sym::Optimize&gt; [iter    5] lambda: 9.766e-04, error prev/linear/new: 0.000/0.000/0.000, rel reduction: 0.08144
-[2022-12-01 07:26:56.626] [info] LM&lt;sym::Optimize&gt; [iter    6] lambda: 2.441e-04, error prev/linear/new: 0.000/0.000/0.000, rel reduction: 0.00012
-[2022-12-01 07:26:56.627] [info] LM&lt;sym::Optimize&gt; [iter    7] lambda: 6.104e-05, error prev/linear/new: 0.000/0.000/0.000, rel reduction: 0.00000
+<pre>[2022-12-03 10:13:12.447] [info] LM&lt;sym::Optimize&gt; [iter    0] lambda: 1.000e+00, error prev/linear/new: 5.143/2.872/2.203, rel reduction: 0.57166
+[2022-12-03 10:13:12.448] [info] LM&lt;sym::Optimize&gt; [iter    1] lambda: 2.500e-01, error prev/linear/new: 2.203/0.087/0.074, rel reduction: 0.96655
+[2022-12-03 10:13:12.449] [info] LM&lt;sym::Optimize&gt; [iter    2] lambda: 6.250e-02, error prev/linear/new: 0.074/0.006/0.006, rel reduction: 0.91401
+[2022-12-03 10:13:12.449] [info] LM&lt;sym::Optimize&gt; [iter    3] lambda: 1.562e-02, error prev/linear/new: 0.006/0.001/0.001, rel reduction: 0.90323
+[2022-12-03 10:13:12.450] [info] LM&lt;sym::Optimize&gt; [iter    4] lambda: 3.906e-03, error prev/linear/new: 0.001/0.000/0.000, rel reduction: 0.60930
+[2022-12-03 10:13:12.450] [info] LM&lt;sym::Optimize&gt; [iter    5] lambda: 9.766e-04, error prev/linear/new: 0.000/0.000/0.000, rel reduction: 0.08144
+[2022-12-03 10:13:12.451] [info] LM&lt;sym::Optimize&gt; [iter    6] lambda: 2.441e-04, error prev/linear/new: 0.000/0.000/0.000, rel reduction: 0.00012
+[2022-12-03 10:13:12.453] [info] LM&lt;sym::Optimize&gt; [iter    7] lambda: 6.104e-05, error prev/linear/new: 0.000/0.000/0.000, rel reduction: 0.00000
 </pre>
 </div>
 </div>
@@ -15102,7 +15131,7 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">symforce.examples.robot_2d_localization.plotting</span> <span class="kn">import</span> <span class="n">plot_solution</span>
@@ -15158,7 +15187,7 @@ Class Codegen adalah alat utama untuk menghasilkan kode runtime dari ekspresi si
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">symforce.codegen</span> <span class="kn">import</span> <span class="n">Codegen</span><span class="p">,</span> <span class="n">CppConfig</span>
@@ -15176,7 +15205,7 @@ Class Codegen adalah alat utama untuk menghasilkan kode runtime dari ekspresi si
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">codegen_linearization</span> <span class="o">=</span> <span class="n">codegen</span><span class="o">.</span><span class="n">with_linearization</span><span class="p">(</span>
@@ -15196,7 +15225,7 @@ Class Codegen adalah alat utama untuk menghasilkan kode runtime dari ekspresi si
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">codegen_linearization</span><span class="o">.</span><span class="n">generate_function</span><span class="p">()</span>
@@ -15225,7 +15254,7 @@ Class Codegen adalah alat utama untuk menghasilkan kode runtime dari ekspresi si
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>%%bash
@@ -15249,16 +15278,16 @@ wget https://raw.githubusercontent.com/symforce-org/symforce/main/gen/cpp/sym/po
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>--2022-12-01 07:49:41--  https://raw.githubusercontent.com/symforce-org/symforce/main/gen/cpp/sym/pose2.h
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+<pre>--2022-12-03 10:13:14--  https://raw.githubusercontent.com/symforce-org/symforce/main/gen/cpp/sym/pose2.h
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 8015 (7.8K) [text/plain]
-Saving to: ‘./sym/pose2.h’
+Saving to: ‘./sym/pose2.h.1’
 
-     0K .......                                               100% 21.2M=0s
+     0K .......                                               100% 62.3M=0s
 
-2022-12-01 07:49:42 (21.2 MB/s) - ‘./sym/pose2.h’ saved [8015/8015]
+2022-12-03 10:13:14 (62.3 MB/s) - ‘./sym/pose2.h.1’ saved [8015/8015]
 
 </pre>
 </div>
